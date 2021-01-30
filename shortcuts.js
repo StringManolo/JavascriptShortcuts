@@ -18,11 +18,13 @@ window.make = (elem, opt) => {
   return el;
 }
 
-window.ael = (elem, ev, cb) => cb ? elem.addEventListener(ev, (e) => cb(e)) : elem.addEventListener("click", (e) => ev(e));
+window.ael = (elem, ev, cb) => {
+  cb ? elem.addEventListener(ev, (e) => cb(e)) : elem.addEventListener("click", (e) => ev(e))
+  return elem;
+}
 
 window.add = (elem, chil) => (elem.appendChild(chil) && chil);
 
 window.rand = range => ~~(Math.random() * range + 1);
 
 window.css = code => add($("head"), make("style", { className: "shortcutStyles", innerText: code }));
-
